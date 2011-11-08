@@ -1,0 +1,7 @@
+<h1>Hello tech.vg.no!</h1>
+<ul>
+<li><a href="<?php echo $this->url(array('id' => 1, 'title' => 'correct-title'), 'article') ?>">This link uses the correct title of the article</a></li>
+<li><a href="<?php echo $this->url(array('id' => 1, 'title' => 'incorrect-title'), 'article') ?>">This link uses an incorrect title of the article and will be redirected</a></li>
+<li><a href="<?php echo $this->url(array('id' => 1, 'title' => 'incorrect-title'), 'article') ?>?noRedirect">This link uses an incorrect title of the article and will not be redirected (because of the query parameter)</a></li>
+<li><a href="<?php echo $this->url(array('id' => 12, 'title' => 'incorrect-title'), 'article') ?>">This link uses an article id that does not exist</a></li>
+</ul>
