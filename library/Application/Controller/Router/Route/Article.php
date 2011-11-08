@@ -29,8 +29,7 @@ class Application_Controller_Router_Route_Article extends Zend_Controller_Router
         $match = parent::match($path, $partial);
 
         if ($match) {
-            $id    = (int) $match['id'];
-            $title = $match['title'];
+            $id = (int) $match['id'];
 
             // See if the accessed article actually exist
             if (!isset($this->articles[$id])) {
