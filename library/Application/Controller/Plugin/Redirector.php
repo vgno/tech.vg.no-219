@@ -24,6 +24,12 @@ class Application_Controller_Plugin_Redirector extends Zend_Controller_Plugin_Ab
         if (!$request->has('noRedirect')) {
             $canonicalUrl = $request->getBaseUrl() . '/' . $route->assemble($request->getParams());
 
+            $query = $request->getQuery();
+
+            if ($query) {
+                $canonicalUrl .= '?' . http_build_query($query);
+            }
+
             if ($canonicalUrl !== $request->getRequestUri()) {
                 // The accessed url is not correct. Issue a 301 redirect.
                 $this->getResponse()->setRedirect($canonicalUrl, 301)
